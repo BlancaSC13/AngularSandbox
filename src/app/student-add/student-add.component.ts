@@ -17,10 +17,10 @@ export class StudentAddComponent implements OnInit {
     name: '',
     email: '',
     password: '',
-    nationality: 0,
+    nationalityId: 0,
   };
   constructor(public rest: RestService, private router: Router) {}
-  addStudent(): void {
+  addStudent() {
     this.rest.addStudent(this.student).subscribe({
       next: (v) => console.log(v),
       error: (e) => console.log(e),
@@ -28,6 +28,6 @@ export class StudentAddComponent implements OnInit {
     });
   }
   cancel() {
-    this.router.navigate(['/students6']);
+    this.router.navigate(['/students']);
   }
 }

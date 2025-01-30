@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, tap } from 'rxjs';
 
-const API_URL = 'https://localhost:7053/api/';
+const API_URL = 'https://localhost:7053/api/Student/';
 const HTTP_OPTIONS = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -16,17 +16,15 @@ export class RestService {
   constructor(private http: HttpClient) {}
   addStudent(student: any): Observable<any> {
     console.log(student);
-    return this.http
-      .post<any>(
-        API_URL + 'PostStudent/',
-        JSON.stringify(student),
-        HTTP_OPTIONS
-      )
-      .pipe(
-        tap((student) => console.log('Student added!')),
-        catchError(this.handleError<any>('Error message')) //todo: customizar
-      );
+
+    return this.http.post<any>(
+      API_URL + 'PostStudent',
+      JSON.stringify(student),
+      HTTP_OPTIONS
+    );
+    //TODO: handle errors
   }
+
   handleError<T>(
     arg0: string
   ): (
