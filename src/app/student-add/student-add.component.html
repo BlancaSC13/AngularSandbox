@@ -1,5 +1,13 @@
-<p>student-add works!</p>
-<body>
+<main>
+  <div>
+    <button
+      mat-raised-button
+      routerLink="/student-add/planes-child"
+      style="font-size: 12px; margin: 12px"
+    >
+      Plane Child
+    </button>
+  </div>
   <form class="form-group form-style">
     <div class="form-group row">
       <label class="control-label col-md-12">Name: </label>
@@ -55,4 +63,5 @@
       <button (click)="cancel()" class="btn">Cancel</button>
     </div>
   </form>
-</body>
+</main>
+<router-outlet />

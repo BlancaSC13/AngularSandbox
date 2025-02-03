@@ -3,10 +3,13 @@ import { Router } from '@angular/router';
 import { RestService } from '../rest.service';
 import { FormsModule } from '@angular/forms';
 import { of } from 'rxjs';
+import { RouterOutlet } from '@angular/router';
+import { RouterLink } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-student-add',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterOutlet, RouterLink, MatButtonModule],
   templateUrl: './student-add.component.html',
   styleUrl: './student-add.component.css',
 })
