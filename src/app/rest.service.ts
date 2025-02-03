@@ -14,6 +14,21 @@ const HTTP_OPTIONS = {
 })
 export class RestService {
   constructor(private http: HttpClient) {}
+  getStudents(): Observable<any> {
+    return this.http.get<any>(API_URL + 'GetStudents', HTTP_OPTIONS);
+    //TODO: handle errors
+  }
+  getStudentById(id: any): Observable<any> {
+    return this.http.get<any>(API_URL + 'GetStudent/' + id, HTTP_OPTIONS);
+  }
+  updateStudent(student: any): Observable<any> {
+    //TODO: test PutStudent without SP
+    return this.http.put<any>(
+      API_URL + 'PutStudentSP',
+      JSON.stringify(student),
+      HTTP_OPTIONS
+    );
+  }
   addStudent(student: any): Observable<any> {
     console.log(student);
 

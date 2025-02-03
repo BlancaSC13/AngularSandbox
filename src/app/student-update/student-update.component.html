@@ -1,0 +1,22 @@
+<div>
+  <h2>Student Update</h2>
+  <div>
+    <label>Name: <input [(ngModel)]="student.name" placeholder="Name" /> </label
+    ><br />
+    <label
+      >Email: <input [(ngModel)]="student.email" placeholder="Email" /> </label
+    ><br />
+    <label
+      >Password:
+      <input [(ngModel)]="student.password" placeholder="Password" /> </label
+    ><br />
+    <label
+      >Nationality
+      <input
+        [(ngModel)]="student.nationalityId"
+        placeholder="Nationality"
+      /> </label
+    ><br />
+  </div>
+  <button (click)="update()">Update</button>
+</div>
