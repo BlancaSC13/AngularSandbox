@@ -3,13 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 
-
 @Component({
-  selector: 'app-root',
+  selector: 'app-home',
+  standalone: true,
   imports: [RouterOutlet, MatButtonModule, RouterLink],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css',
 })
-export class AppComponent {
-  title = 'angular-sandbox';
-}
+export class HomeComponent {}
