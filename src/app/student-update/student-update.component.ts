@@ -3,12 +3,21 @@ import { RestService } from '../rest.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule, NgModel } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-student-update',
-  imports: [FormsModule],
+  imports: [
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    FormsModule
+  ],
   templateUrl: './student-update.component.html',
-  styleUrl: './student-update.component.css',
+  styleUrl: './student-update.component.css'
 })
 export class StudentUpdateComponent implements OnInit {
   @Input() student: any = {
