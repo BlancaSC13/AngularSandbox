@@ -1,6 +1,10 @@
 <p>student-add works!</p>
 <body>
-  <form class="form-group form-style">
+  <form
+    class="form-group form-style"
+    (ngSubmit)="addStudent()"
+    #studentForm="ngForm"
+  >
     <div class="form-group row">
       <label class="control-label col-md-12">Name: </label>
       <div class="col-md-4">
@@ -9,7 +13,12 @@
           [(ngModel)]="student.name"
           name="name"
           placeholder="Name"
+          required
+          #name="ngModel"
         />
+      </div>
+      <div *ngIf="name.invalid && name.touched" class="text-danger">
+        Name is required.
       </div>
     </div>
 
@@ -21,7 +30,14 @@
           [(ngModel)]="student.email"
           name="email"
           placeholder="Email"
+          required
+          email
+          pattern=".+@.+\..+"
+          #email="ngModel"
         />
+      </div>
+      <div *ngIf="email.invalid && email.touched" class="text-danger">
+        Please enter a valid email.
       </div>
     </div>
 
@@ -33,26 +49,40 @@
           [(ngModel)]="student.password"
           name="password"
           placeholder="Password"
+          type="password"
+          required
+          #password="ngModel"
         />
+      </div>
+      <div *ngIf="password.invalid && password.touched" class="text-danger">
+        Password is required.
       </div>
     </div>
 
     <div class="form-group row">
+        
       <label class="control-label col-md-12">Nationality: </label>
       <div class="col-md-4">
-        <input
-          class="form-control"
-          [(ngModel)]="student.nationalityId"
-          name="nationality"
-          placeholder="Nationality"
-        />
+
+          <select class="form-control" [(ngModel)]="student.nationalityId" name="nationality">
+              <option value="0" selected>
+                  Select nationality
+              </option>
+              <option *ngFor="let na of nationalities" [value]="na.id">{{ na.name }}</option>
+          </select>              
+          
       </div>
-    </div>
+  </div>
 
     <div class="form-group">
-      <button (click)="addStudent()" class="btn btn-default">Save</button>
-
-      <button (click)="cancel()" class="btn">Cancel</button>
+      <button
+        type="submit"
+        class="btn btn-default"
+        [disabled]="studentForm.invalid"
+      >
+        Save
+      </button>
+      <button type="button" (click)="cancel()" class="btn">Cancel</button>
     </div>
   </form>
 </body>

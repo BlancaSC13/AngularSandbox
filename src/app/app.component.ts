@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
+import { RestService } from './rest.service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,9 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'angular-sandbox';
+  constructor(public rest: RestService, private router: Router) {}
+
+  goBack() {
+    this.router.navigate(['/']); //agregar la ruta a la que quiere volver
+  }
 }

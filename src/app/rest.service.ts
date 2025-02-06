@@ -14,9 +14,22 @@ const HTTP_OPTIONS = {
 })
 export class RestService {
   constructor(private http: HttpClient) {}
+  getStudents(): Observable<any> {
+    return this.http.get<any>(API_URL + 'GetStudents', HTTP_OPTIONS);
+    //TODO: handle errors
+  }
+  getStudentById(id: any): Observable<any> {
+    return this.http.get<any>(API_URL + 'GetStudent/' + id, HTTP_OPTIONS);
+  }
+  updateStudent(student: any): Observable<any> {
+    //TODO: test PutStudent without SP
+    return this.http.put<any>(
+      API_URL + 'PutStudentSP',
+      JSON.stringify(student),
+      HTTP_OPTIONS
+    );
+  }
   addStudent(student: any): Observable<any> {
-    console.log(student);
-
     return this.http.post<any>(
       API_URL + 'PostStudent',
       JSON.stringify(student),
@@ -24,7 +37,13 @@ export class RestService {
     );
     //TODO: handle errors
   }
-
+  deleteStudent(id: any): Observable<any> {
+    return this.http.delete<any>(API_URL + 'DeleteStudent/' + id, HTTP_OPTIONS);
+    //TODO: handle errors
+  }
+  getNationalities(): Observable<any> {
+    return this.http.get<any>(API_URL + 'GetNationalities', HTTP_OPTIONS);
+  }
   handleError<T>(
     arg0: string
   ): (

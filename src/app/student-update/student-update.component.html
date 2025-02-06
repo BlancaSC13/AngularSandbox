@@ -1,0 +1,42 @@
+<div>
+  <h2>Student Update</h2>
+  <div>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="student.name" placeholder="Name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="student.email" placeholder="Email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        [(ngModel)]="student.password"
+        placeholder="Password"
+        type="password"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nationality</mat-label>
+      <input
+        matInput
+        [(ngModel)]="student.nationalityId"
+        placeholder="Nationality"
+      />
+    </mat-form-field>
+  </div>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="full-width"
+    (click)="update()"
+  >
+    Update
+  </button>
+</div>
